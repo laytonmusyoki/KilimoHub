@@ -12,8 +12,8 @@ const Contact = () => {
   }, []);
 
   return (
-    <div className='bg-gray-50'>
-        <div className="max-w-[95%] mx-auto py-20 px-4 sm:px-10 text-gray-800">
+    <div className='bg-gray-50 overflow-x-hidden' id='contact'>
+        <div className="max-w-[95%] mx-auto py-20 px-2 sm:px-4 text-gray-800">
       {/* Header Section */}
       <div className="text-center mb-12" data-aos="fade-up">
         <h2 className="text-3xl sm:text-4xl font-extrabold text-primary mb-4">

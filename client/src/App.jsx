@@ -14,6 +14,8 @@ import ProductDetails from './components/ProductDetails'
 import About from './pages/About'
 import Contact from './pages/Contact'
 import Footer from './pages/Footer'
+import Cart from './pages/Cart'
+import Favorites from './pages/Favorites'
 
 
 function App() {
@@ -48,7 +50,8 @@ function App() {
         </>
       } /> 
       <Route path="/product/:id" element={<ProductDetails/>} />
-  
+      <Route path="/cart" element={<Cart />} />
+      <Route path="/favorites" element={<Favorites />} />
     </Routes>
    </Router>
    

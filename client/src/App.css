@@ -1,3 +1,10 @@
 body{
     overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+@media (max-width: 768px) {
+    body{
+        overflow-x: hidden;
+    }
 }

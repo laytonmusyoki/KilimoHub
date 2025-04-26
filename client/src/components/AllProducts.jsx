@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import { FaHeart, FaCartPlus } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import Products from '../data/Products';
+import { addToCart } from '../features/cart/cartSlice';
+import { addToFavorite, removeFromFavorite } from '../features/cart/favoriteSlice';
 
 const categories = ['All', 'Fruits', 'Grains', 'Livestock', 'Tools'];
 const priceOptions = ['All', 'Under 100', '100 - 500', 'Over 500'];
@@ -10,6 +13,10 @@ function AllProducts() {
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [selectedPrice, setSelectedPrice] = useState('All');
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  // Accessing the favorite products from the Redux store
+  const favorites = useSelector(state => state.favorite.items);
 
   const filteredProducts = Products.filter(product => {
     const matchCategory = selectedCategory === 'All' || product.category === selectedCategory;
@@ -21,6 +28,18 @@ function AllProducts() {
 
     return matchCategory && matchPrice;
   });
+
+  const handleAddToCart = (product) => {
+    dispatch(addToCart(product));
+  };
+
+  const handleAddToFavorite = (product) => {
+    if (favorites.some(fav => fav.id === product.id)) {
+      dispatch(removeFromFavorite(product.id)); // Remove from favorites if already in the list
+    } else {
+      dispatch(addToFavorite(product)); // Add to favorites if not in the list
+    }
+  };
 
   const handleProductClick = (id) => {
     navigate(`/product/${id}`);
@@ -79,22 +98,32 @@ function AllProducts() {
           {filteredProducts.map(product => (
             <div
               key={product.id}
-              onClick={() => handleProductClick(product.id)}
-              className="bg-[#fefdf7] rounded-2xl shadow p-4 relative cursor-pointer hover:shadow-lg transition"
+              className="bg-[#fefdf7] rounded-2xl shadow p-4 relative hover:shadow-lg transition"
             >
               {/* Favorite */}
               <button
-                className="absolute top-3 right-3 bg-white p-2 rounded-full shadow hover:bg-green-100 z-10"
-                onClick={e => e.stopPropagation()} // prevent from opening details
+                className={`absolute top-3 right-3 p-2 rounded-full shadow z-10 ${
+                  favorites.some(fav => fav.id === product.id) ? 'bg-red-600' : 'bg-white hover:bg-green-100'
+                }`}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleAddToFavorite(product);
+                }}
               >
-                <FaHeart className="text-green-600 text-sm" />
+                <FaHeart
+                  className={`text-sm ${favorites.some(fav => fav.id === product.id) ? 'text-white' : 'text-green-600'}`}
+                />
               </button>
 
+              {/* Product Image */}
               <img
                 src={product.image}
                 alt={product.name}
-                className="w-full h-40 object-cover rounded-xl"
+                onClick={() => handleProductClick(product.id)}
+                className="w-full h-60 sm:h-64 md:h-72 lg:h-52 object-cover rounded-xl cursor-pointer"
               />
+
+              {/* Product Details */}
               <div className="mt-4">
                 <h3 className="text-lg font-bold text-green-900">{product.name}</h3>
                 <p className="text-green-600 font-medium">
@@ -105,9 +134,9 @@ function AllProducts() {
                 {/* Add to Cart */}
                 <button
                   className="w-full mt-4 flex items-center justify-center gap-2 bg-green-700 text-white py-2 rounded-full hover:bg-green-800 transition"
-                  onClick={e => {
-                    e.stopPropagation(); // prevent opening details when clicking add to cart
-                    // handle add to cart logic here
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleAddToCart(product);
                   }}
                 >
                   <FaCartPlus /> Add to Cart
