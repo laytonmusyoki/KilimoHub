@@ -51,7 +51,7 @@ const menuLinks = [
             menuLinks.map((menu,index)=>(
                 <li key={index} className='list-none flex items-center gap-x-2 my-4'>
                     {menu.icon}
-                    <a href={menu.path} className='text-gray-700 font-semibold'>{menu.label} </a>
+                    <a href={menu.path} className='text-gray-700 font-semibold text-xl'>{menu.label} </a>
                 </li>
             ))
         }
