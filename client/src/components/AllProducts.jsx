@@ -15,7 +15,6 @@ function AllProducts() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  // Accessing the favorite products from the Redux store
   const favorites = useSelector(state => state.favorite.items);
 
   const filteredProducts = Products.filter(product => {
@@ -35,9 +34,9 @@ function AllProducts() {
 
   const handleAddToFavorite = (product) => {
     if (favorites.some(fav => fav.id === product.id)) {
-      dispatch(removeFromFavorite(product.id)); // Remove from favorites if already in the list
+      dispatch(removeFromFavorite(product.id)); 
     } else {
-      dispatch(addToFavorite(product)); // Add to favorites if not in the list
+      dispatch(addToFavorite(product)); 
     }
   };
 

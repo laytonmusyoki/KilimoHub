@@ -39,16 +39,15 @@ function FeaturedProducts() {
   const products = Products.filter(product => product.featured);
 
   const handleAddToCart = (product) => {
-    dispatch(addToCart(product));  // Add to Cart
+    dispatch(addToCart(product));  
   };
 
   const handleFavoriteToggle = (product) => {
-    // If product is already in favorites, remove it, otherwise add it.
     const isInFavorites = favoriteItems.some(item => item.id === product.id);
     if (isInFavorites) {
-      dispatch(removeFromFavorite(product.id));  // Remove from favorites
+      dispatch(removeFromFavorite(product.id));  
     } else {
-      dispatch(addToFavorite(product));  // Add to favorites
+      dispatch(addToFavorite(product));  
     }
   };
 
