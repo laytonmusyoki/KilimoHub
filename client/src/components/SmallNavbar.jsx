@@ -22,7 +22,7 @@ const menuLinks = [
 //     icon: <FaEnvelope size={20} className='text-gray-600'/>
 //   },
   {
-    label: "Favourite",
+    label: "Favourites",
     path: '/favorites',
     icon: <FaHeart size={20} className='text-gray-600'/>
   },

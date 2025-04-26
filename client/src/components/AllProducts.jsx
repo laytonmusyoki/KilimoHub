@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Products from '../data/Products';
 import { addToCart } from '../features/cart/cartSlice';
 import { addToFavorite, removeFromFavorite } from '../features/cart/favoriteSlice';
+import { toast,ToastContainer } from 'react-toastify';
 
 const categories = ['All', 'Fruits', 'Vegetables', 'Grains', 'Livestock', 'Tools'];
 
@@ -31,13 +32,16 @@ function AllProducts() {
 
   const handleAddToCart = (product) => {
     dispatch(addToCart(product));
+    toast.success(`${product.name} added to cart!`);
   };
 
   const handleAddToFavorite = (product) => {
     if (favorites.some(fav => fav.id === product.id)) {
       dispatch(removeFromFavorite(product.id)); 
+      toast.success(`${product.name} removed from favorites!`);
     } else {
       dispatch(addToFavorite(product)); 
+      toast.success(`${product.name} added to favorites!`);
     }
   };
 
@@ -150,6 +154,7 @@ function AllProducts() {
           <p className="text-center text-gray-500 mt-10">No products found for this filter.</p>
         )}
       </div>
+      <ToastContainer/>
     </div>
   );
 }
