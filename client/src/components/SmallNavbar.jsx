@@ -1,7 +1,7 @@
 import React from 'react'
 import { FaHome, FaTimes,FaInfoCircle,FaEnvelope,FaHeart, FaCartPlus } from 'react-icons/fa'
 
-function SmallNavbar({onClose}) {
+function SmallNavbar({onClose,isOpen}) {
 
     
 
@@ -36,7 +36,11 @@ const menuLinks = [
 
     
   return (
-    <div className='max-w-[70%] h-screen w-full bg-white z-50 p-4 fixed top-0 left-0'>
+    <div
+      className={`fixed top-0 left-0 w-[80%] max-w-xs h-full bg-white shadow-2xl z-50 p-6 transform transition-transform duration-300 ${
+        isOpen ? 'translate-x-0' : '-translate-x-full'
+      }`}
+    >
       <div className='flex justify-between items-center'>
         <h1 className="text-2xl md:text-4xl font-bold text-green-900 whitespace-nowrap">KilimoHub</h1>
         <FaTimes size={20} onClick={onClose}/>

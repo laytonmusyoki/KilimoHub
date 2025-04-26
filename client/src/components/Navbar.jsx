@@ -40,15 +40,15 @@ function Navbar() {
       {/* Center: Navigation */}
       <div className="hidden md:flex space-x-6 text-green-900 font-medium">
         <a href="/" className="hover:text-green-700 font-bold">Home</a>
-        <a href="/about" className="hover:text-green-700 font-bold">About</a>
-        <a href="/contact" className="hover:text-green-700 font-bold">Contact</a>
+        <a href="#about" className="hover:text-green-700 font-bold">About</a>
+        <a href="#contact" className="hover:text-green-700 font-bold">Contact</a>
       </div>
 
       {/* Right: Icons and Login */}
       <div className="flex items-center space-x-4 relative">
         {/* Favorites Link */}
         <a href="/favorites" className="relative hover:text-green-700 text-green-900">
-          <FaHeart className="text-base md:text-xl" />
+          <FaHeart size={20} className="text-base md:text-xl" />
           {favoriteCount > 0 && (
             <span className="absolute -top-1 -right-1 bg-red-500 text-white text-[10px] md:text-xs font-bold px-[5px] py-[1px] rounded-full leading-none">
               {favoriteCount}
@@ -58,7 +58,7 @@ function Navbar() {
 
         {/* Cart Link */}
         <a href="/cart" className="relative hover:text-green-700 text-green-900">
-          <FaShoppingCart className="text-base md:text-xl" />
+          <FaShoppingCart size={20} className="text-base md:text-xl" />
           {cartCount > 0 && (
             <span className="absolute -top-1 -right-1 bg-red-500 text-white text-[10px] md:text-xs font-bold px-[5px] py-[1px] rounded-full leading-none">
               {cartCount}
@@ -68,7 +68,7 @@ function Navbar() {
 
         {/* Login/register Button */}
         <div onClick={()=>{setIsModalOpen(true)}} className='w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center cursor-pointer'>
-          <FaUserCircle/>
+          <FaUserCircle size={20}/>
         </div>
 
         {/* Menu */}
@@ -94,7 +94,7 @@ function Navbar() {
       )}
       {/* small navbar toggle */}
       {smallMenu && (
-        <SmallNavbar onClose={()=>{setSmallMenu(false)}}/>
+        <SmallNavbar onClose={()=>{setSmallMenu(false)}} isOpen={smallMenu}/>
       )}
 
       {/* modal for login */}
