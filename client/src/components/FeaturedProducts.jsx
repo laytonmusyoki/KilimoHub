@@ -7,6 +7,7 @@ import Products from '../data/Products';
 import { useDispatch, useSelector } from 'react-redux';
 import { addToCart } from '../features/cart/cartSlice';  
 import { addToFavorite, removeFromFavorite } from '../features/cart/favoriteSlice'; 
+import { toast } from 'react-toastify';
 
 function FeaturedProducts() {
   const dispatch = useDispatch();
@@ -40,6 +41,7 @@ function FeaturedProducts() {
 
   const handleAddToCart = (product) => {
     dispatch(addToCart(product));  
+    toast.success(`${product.name} added to cart!`);
   };
 
   const handleFavoriteToggle = (product) => {
@@ -48,6 +50,7 @@ function FeaturedProducts() {
       dispatch(removeFromFavorite(product.id));  
     } else {
       dispatch(addToFavorite(product));  
+      toast.success(`${product.name} added to favorites!`);
     }
   };
 

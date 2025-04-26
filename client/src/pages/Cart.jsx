@@ -11,14 +11,17 @@ function Cart() {
 
   const handleIncrease = (item) => {
     dispatch(addToCart(item));
+    toast.success(`${item.name} added to cart!`);
   };
 
   const handleDecrease = (item) => {
     dispatch(decreaseQuantity(item.id));
+    toast.success(`One ${item.name} removed from the cart!`);
   };
 
   const handleRemoveFromCart = (productId) => {
     dispatch(removeFromCart(productId));
+    toast.success(`item removed  from the cart!`);
   };
 
   const handleCheckout = () => {

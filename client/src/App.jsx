@@ -16,6 +16,9 @@ import Contact from './pages/Contact'
 import Footer from './pages/Footer'
 import Cart from './pages/Cart'
 import Favorites from './pages/Favorites'
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 
 function App() {
@@ -55,7 +58,7 @@ function App() {
     </Routes>
    </Router>
    
-  
+   <ToastContainer/>
    </>
   )
 }
