@@ -74,7 +74,7 @@ function FeaturedProducts() {
                 <img
                   src={product.image}
                   alt={product.name}
-                  className="w-full h-48 object-cover"
+                  className="w-full h-60 sm:h-auto md:h-72 lg:h-52 object-cover rounded-xl cursor-pointer"
                 />
                 <div className="p-5">
                   <h3 className="text-xl font-semibold text-green-800 mb-1">{product.name}</h3>

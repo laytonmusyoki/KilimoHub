@@ -119,7 +119,7 @@ function AllProducts() {
                 src={product.image}
                 alt={product.name}
                 onClick={() => handleProductClick(product.id)}
-                className="w-full h-60 sm:h-64 md:h-72 lg:h-52 object-cover rounded-xl cursor-pointer"
+                className="w-full h-60 sm:h-auto md:h-72 lg:h-52 object-cover rounded-xl cursor-pointer"
               />
 
               {/* Product Details */}
