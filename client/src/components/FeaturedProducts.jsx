@@ -50,7 +50,7 @@ function FeaturedProducts() {
       dispatch(removeFromFavorite(product.id));  
     } else {
       dispatch(addToFavorite(product));  
-      toast.success(`${product.name} added to favorites!`);
+      toast.success(`${product.name} added to favorites`);
     }
   };
 
