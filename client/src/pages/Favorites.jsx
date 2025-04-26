@@ -3,7 +3,7 @@ import { FaTrashAlt, FaCartPlus } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
 import { removeFromFavorite } from '../features/cart/favoriteSlice';  
 import { addToCart } from '../features/cart/cartSlice'; // ✅ import addToCart!
-import { ToastContainer } from 'react-toastify';
+import { ToastContainer,toast } from 'react-toastify';
 
 function Favorites() {
   const favoriteItems = useSelector(state => state.favorite.items || []);
@@ -11,7 +11,7 @@ function Favorites() {
 
   const handleRemoveFromFavorites = (productId) => {
     dispatch(removeFromFavorite(productId));
-    toast.success(`Item removed`);
+    toast.success('Item removed');
   };
 
   const handleAddToCart = (item) => {
