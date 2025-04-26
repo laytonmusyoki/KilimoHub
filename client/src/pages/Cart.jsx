@@ -3,6 +3,7 @@ import { FaTrashAlt, FaPlus, FaMinus } from 'react-icons/fa';
 import { useSelector, useDispatch } from 'react-redux';
 import { addToCart, removeFromCart, decreaseQuantity } from '../features/cart/cartSlice';
 import { useNavigate } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
 
 function Cart() {
   const cartItems = useSelector(state => state.cart.items || []);
@@ -11,7 +12,7 @@ function Cart() {
 
   const handleIncrease = (item) => {
     dispatch(addToCart(item));
-    toast.success(`${item.name} added to cart!`);
+    toast.success(`One ${item.name} added to cart!`);
   };
 
   const handleDecrease = (item) => {
@@ -106,6 +107,7 @@ function Cart() {
           </div>
         )}
       </div>
+      <ToastContainer/>
     </div>
   );
 }
