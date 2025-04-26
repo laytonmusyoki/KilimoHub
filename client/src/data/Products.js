@@ -3,10 +3,10 @@ const Products = [
     id: 1,
     name: "Organic Tomatoes",
     image: "/images/tomato.webp",
-    price: 120, // Numeric value without the Ksh
-    priceUnit: "kg", // Keep unit separately
+    price: 120,
+    priceUnit: "kg",
     desc: "Freshly harvested and chemical-free.",
-    category: "Fruits",
+    category: "Fruits", // Changed from Fruits to Vegetables
     featured: true,
   },
   {
@@ -24,7 +24,7 @@ const Products = [
     name: "Healthy Dairy Cow",
     image: "/images/cow.webp",
     price: 55000,
-    priceUnit: "each", // Specify "each" for livestock
+    priceUnit: "each",
     desc: "High milk yield and well-vaccinated.",
     category: "Livestock",
     featured: true,
@@ -34,7 +34,7 @@ const Products = [
     name: "Stainless Farm Fork",
     image: "/images/fork.jpg",
     price: 1500,
-    priceUnit: "each", // For tools like this, specify "each"
+    priceUnit: "each",
     desc: "Durable and rust-resistant tool.",
     category: "Tools",
     featured: true,
@@ -44,9 +44,9 @@ const Products = [
     name: "Spinach Bunch",
     image: "/images/spinach.jpg",
     price: 60,
-    priceUnit: "bunch", // Specify for bunches
+    priceUnit: "bunch",
     desc: "Crisp, green, and pesticide-free.",
-    category: "Fruits",
+    category: "Vegetables", // Corrected
     featured: true,
   },
   {
@@ -66,7 +66,7 @@ const Products = [
     price: 80,
     priceUnit: "kg",
     desc: "Rich in fiber and nutrients.",
-    category: "Fruits",
+    category: "Vegetables", // Corrected
     featured: false,
   },
   {
@@ -96,7 +96,7 @@ const Products = [
     price: 110,
     priceUnit: "kg",
     desc: "Fresh and organically grown.",
-    category: "Fruits",
+    category: "Grains", // Corrected
     featured: false,
   },
   {
@@ -106,7 +106,7 @@ const Products = [
     price: 90,
     priceUnit: "kg",
     desc: "Glossy and nutrient-rich vegetables.",
-    category: "Fruits",
+    category: "Vegetables", // Corrected
     featured: false,
   },
   {
@@ -146,7 +146,7 @@ const Products = [
     price: 50,
     priceUnit: "bunch",
     desc: "Nutritious and locally grown greens.",
-    category: "Fruits",
+    category: "Vegetables", // Corrected
     featured: false,
   }
 ];

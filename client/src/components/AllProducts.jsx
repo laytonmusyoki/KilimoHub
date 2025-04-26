@@ -6,7 +6,8 @@ import Products from '../data/Products';
 import { addToCart } from '../features/cart/cartSlice';
 import { addToFavorite, removeFromFavorite } from '../features/cart/favoriteSlice';
 
-const categories = ['All', 'Fruits', 'Grains', 'Livestock', 'Tools'];
+const categories = ['All', 'Fruits', 'Vegetables', 'Grains', 'Livestock', 'Tools'];
+
 const priceOptions = ['All', 'Under 100', '100 - 500', 'Over 500'];
 
 function AllProducts() {
